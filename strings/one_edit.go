@@ -20,7 +20,7 @@ func IsOneEditAway(s, t string) bool {
 func checkReplace(s, t string) bool {
 	pS, pT, countDiffs := 0, 0, 0
 	for pT < len(t) {
-		if string(s[pS]) != string(t[pT]) {
+		if s[pS] != t[pT] {
 			countDiffs++
 			if countDiffs > 1 {
 				return false
@@ -35,7 +35,7 @@ func checkReplace(s, t string) bool {
 func checkInsertOrRemoval(s, t string) bool {
 	pS, pT, countDiffs := 0, 0, 0
 	for pS < len(s) {
-		if string(s[pS]) != string(t[pT]) {
+		if s[pS] != t[pT] {
 			countDiffs++
 			if countDiffs > 1 {
 				return false
