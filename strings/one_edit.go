@@ -9,9 +9,9 @@ func IsOneEditAway(s, t string) bool {
 	if sL-tL == 0 {
 		return checkReplace(s, t)
 	} else if sL-tL == 1 {
-		return checkInsertorRemoval(t, s)
+		return checkInsertOrRemoval(t, s)
 	} else if sL-tL == -1 {
-		return checkInsertorRemoval(s, t)
+		return checkInsertOrRemoval(s, t)
 	}
 
 	return false
@@ -32,7 +32,7 @@ func checkReplace(s, t string) bool {
 	return true
 }
 
-func checkInsertorRemoval(s, t string) bool {
+func checkInsertOrRemoval(s, t string) bool {
 	pS, pT, countDiffs := 0, 0, 0
 	for pS < len(s) {
 		if string(s[pS]) != string(t[pT]) {
