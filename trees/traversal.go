@@ -17,3 +17,20 @@ func inorderHelper(list []string, n *BTNode) []string {
 	lList = append(lList, rList...)
 	return lList
 }
+
+// Returns a slice of data from the tree via preorder traversal: (root, L, R)
+func Preorder(root *BTNode) []string {
+	return preorderHelper([]string{}, root)
+}
+
+func preorderHelper(list []string, n *BTNode) []string {
+	if n == nil {
+		return list
+	}
+	ret := []string{n.Data}
+	lList := preorderHelper(list, n.Left)
+	rList := preorderHelper(list, n.Right)
+	ret = append(ret, lList...)
+	ret = append(ret, rList...)
+	return ret
+}

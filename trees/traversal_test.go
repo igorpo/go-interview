@@ -33,6 +33,37 @@ func TestInorderTraversal(t *testing.T) {
 	}
 }
 
+func TestPreorderTraversal(t *testing.T) {
+	type input struct {
+		Tree *BTNode
+	}
+
+	type output struct {
+		Preorder []string
+	}
+
+	type test struct {
+		Input  input
+		Output output
+	}
+
+	tests := []test{
+		{input{testTree1()}, output{[]string{"4", "2", "1", "3", "6", "5", "7"}}},
+		{input{testTree2()}, output{[]string{"3", "2", "1", "4"}}},
+		{input{testTree3()}, output{[]string{"2", "3", "1", "4", "7", "5", "6"}}},
+		{input{&BTNode{Data: "1"}}, output{[]string{"1"}}},
+		{input{nil}, output{[]string{}}},
+	}
+
+	for i, tst := range tests {
+		actual := Preorder(tst.Input.Tree)
+		expected := tst.Output.Preorder
+		if !stringSliceEqual(actual, expected) {
+			t.Errorf("Test #%d: got=%v, want=%v", i+1, actual, expected)
+		}
+	}
+}
+
 // (('1') '2' ('3')) '4' (('5') '6' ('7'))
 func testTree1() *BTNode {
 	one := &BTNode{Data: "1"}
