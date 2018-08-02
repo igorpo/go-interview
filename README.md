@@ -16,4 +16,5 @@
    sort.Strings(sArr)
    sorted := strings.Join(sArr, "")
    ```
-5.
+5. When defining tree nodes, use pointers to children
+6. Append lists with `list = append(list, other_list...)`
