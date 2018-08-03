@@ -25,8 +25,8 @@ func checkTree(T1 *BTNode, T2 *BTNode) bool {
 	return checkTree(T1.Left, T2) || checkTree(T1.Right, T2)
 }
 
-// T1: nil, T2: non-nil     -> non-equal
 // T1: nil, T2: nil         -> equal
+// T1: nil, T2: non-nil     -> non-equal
 // T1: non-nil, T2: nil     -> non-equal
 // T1: non-nil, T2: non-nil -> check roots and L, R subtrees
 func isIdenticalTree(T1 *BTNode, T2 *BTNode) bool {
