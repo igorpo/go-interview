@@ -1,6 +1,6 @@
 package graphs
 
-func dfs(g Graph) []int {
+func Dfs(g Graph) []int {
 	visited := make(map[*Node]bool)
 	traversed := []int{}
 

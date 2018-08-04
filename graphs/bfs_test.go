@@ -4,7 +4,7 @@ import (
 	"testing"
 )
 
-func TestDfs(t *testing.T) {
+func TestBfs(t *testing.T) {
 	g := make(Graph, 13, 13)
 	for i := range g {
 		g[i] = &Node{Data: i + 1}
@@ -23,19 +23,10 @@ func TestDfs(t *testing.T) {
 	g[10].Adjacent = []*Node{g[9]}
 	g[11].Adjacent = []*Node{g[7]}
 
-	traversal := Dfs(g)
+	traversal := Bfs(g)
 	for _, n := range g {
 		if !contains(n.Data, traversal) {
 			t.Errorf("Node %d is not in dfs traversal!", n.Data)
 		}
 	}
-}
-
-func contains(n int, list []int) bool {
-	for _, v := range list {
-		if n == v {
-			return true
-		}
-	}
-	return false
 }

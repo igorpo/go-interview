@@ -20,3 +20,4 @@
 6. Append lists with `list = append(list, other_list...)`
 7. Generally, Go passes by value, except with maps and lists, pass a pointer to the list instead
  * `*list = append(*list, value)`
+8. If you want to key a struct in Go within a map, use a pointer to the struct as the key.
