@@ -18,3 +18,5 @@
    ```
 5. When defining tree nodes, use pointers to children
 6. Append lists with `list = append(list, other_list...)`
+7. Generally, Go passes by value, except with maps and lists, pass a pointer to the list instead
+ * `*list = append(*list, value)`
